@@ -32,62 +32,80 @@ def scraping_matches():
     global Season_list
     print("Downloading data for Season 2022")
     Season_2022 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/2223/SP1.csv")
+    Season_2022_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/2223/SP2.csv")
     print("Downloading data for Season 2021")
     Season_2021 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/2122/SP1.csv")
+    Season_2021_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/2122/SP2.csv")
     print("Downloading data for Season 2020")
     Season_2020 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/2021/SP1.csv")
+    Season_2020_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/2021/SP2.csv")
     print("Downloading data for Season 2019")
     Season_2019 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1920/SP1.csv")
+    Season_2019_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1920/SP2.csv")
     print("Downloading data for Season 2018")
     Season_2018 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1819/SP1.csv")
+    Season_2018_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1819/SP2.csv")
     print("Downloading data for Season 2017")
     Season_2017 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1718/SP1.csv")
+    Season_2017_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1718/SP2.csv")
     print("Downloading data for Season 2016")
     Season_2016 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1617/SP1.csv")
+    Season_2016_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1617/SP2.csv")
     print("Downloading data for Season 2015")
     Season_2015 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1516/SP1.csv")
+    Season_2015_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1516/SP2.csv")
     print("Downloading data for Season 2014")
     Season_2014 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1415/SP1.csv")
+    Season_2014_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1415/SP2.csv")
     print("Downloading data for Season 2013")
     Season_2013 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1314/SP1.csv")
+    Season_2013_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1314/SP2.csv")
     print("Downloading data for Season 2012")
     Season_2012 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1213/SP1.csv")
+    Season_2012_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1213/SP2.csv")
     print("Downloading data for Season 2011")
     Season_2011 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1112/SP1.csv")
+    Season_2011_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1112/SP2.csv")
     print("Downloading data for Season 2010")
     Season_2010 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1011/SP1.csv")
+    Season_2010_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/1011/SP2.csv")
     print("Downloading data for Season 2009")
     Season_2009 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/0910/SP1.csv")
+    Season_2009_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/0910/SP2.csv")
     print("Downloading data for Season 2008")
     Season_2008 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/0809/SP1.csv")
+    Season_2008_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/0809/SP2.csv")
     print("Downloading data for Season 2007")
     Season_2007 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/0708/SP1.csv")
+    Season_2007_2 = pd.read_csv(r'../data/SP2.csv')
     print("Downloading data for Season 2006")
     Season_2006 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/0607/SP1.csv")
+    Season_2006_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/0607/SP2.csv")
     print("Downloading data for Season 2005")
     Season_2005 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/0506/SP1.csv")
+    Season_2005_2 = pd.read_csv(r"https://www.football-data.co.uk/mmz4281/0506/SP2.csv")
     print("Defining list of all seasons")
-    Season_list = [Season_2022, 
-                   Season_2021,
-                   Season_2020,
-                   Season_2019,
-                   Season_2018,
-                   Season_2017,
-                   Season_2016,
-                   Season_2015,
-                   Season_2014,
-                   Season_2013,
-                   Season_2012,
-                   Season_2011,
-                   Season_2010,
-                   Season_2009,
-                   Season_2008,
-                   Season_2007,
-                   Season_2006,
-                   Season_2005
-           ]
+    Season_list = [Season_2022, Season_2022_2,
+                   Season_2021, Season_2021_2,
+                   Season_2020, Season_2020_2,
+                   Season_2019, Season_2019_2,
+                   Season_2018, Season_2018_2,
+                   Season_2017, Season_2017_2,
+                   Season_2016, Season_2016_2,
+                   Season_2015, Season_2015_2,
+                   Season_2014, Season_2014_2,
+                   Season_2013, Season_2013_2,
+                   Season_2012, Season_2012_2,
+                   Season_2011, Season_2011_2,
+                   Season_2010, Season_2010_2,
+                   Season_2009, Season_2009_2,
+                   Season_2008, Season_2008_2,
+                   Season_2007, Season_2007_2,
+                   Season_2006, Season_2006_2,
+                   Season_2005, Season_2005_2]
     print("Concatenating all data into one dataframe")
     db_concat = pd.concat(Season_list)
+    db_concat.reset_index(drop=True, inplace=True)
     print("Saving csv")
     db_concat.to_csv(r'../data/matches.csv')
     print("File Saved")
