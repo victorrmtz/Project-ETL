@@ -6,7 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 from webdriver_manager.chrome import ChromeDriverManager
-
+import requests as req
+from bs4 import BeautifulSoup as bs 
 from selenium.webdriver.chrome.options import Options
 from tqdm.notebook import tqdm
 # opciones del driver
@@ -96,23 +97,6 @@ DATOS=[]
 
 CABECERAS=[]
 
-def scraping_cabe():
-    PATH=ChromeDriverManager().install()
-    driver = webdriver.Chrome(PATH,options = opciones)
-    driver.get('https://fbref.com/en/comps/12/stats/La-Liga-Stats')
-    time.sleep(2)
-    acepto=driver.find_element(By.XPATH, '//*[@id="qc-cmp2-ui"]/div[2]/div/button[3]')
-
-    acepto.click()
-
-    time.sleep(2) 
-
-    tabla=driver.find_elements(By.TAG_NAME,'table')[9]
-
-    filas=tabla.find_elements(By.TAG_NAME, 'tr')
-    cab = [c.text for c in filas[1].find_elements(By.TAG_NAME, 'th')]
-    return cab
-
 def scraping_teams(url):
     
     global DATOS, CABECERAS
@@ -148,27 +132,12 @@ def scraping_teams(url):
 
         data.append(tmp)
 
-    #cab = [c.text for c in filas[1].find_elements(By.TAG_NAME, 'th')]
-    driver.quit()
-    return data
-    #CABECERAS=cab
-    
-def scraping_cols():
-    PATH=ChromeDriverManager().install()
-    driver = webdriver.Chrome(PATH,options = opciones)
-    driver.get('https://fbref.com/en/comps/12/stats/La-Liga-Stats')
-    time.sleep(2)
-    acepto=driver.find_element(By.XPATH, '//*[@id="qc-cmp2-ui"]/div[2]/div/button[3]')
-
-    acepto.click()
-
-    time.sleep(2) 
-
-    tabla=driver.find_elements(By.TAG_NAME,'table')[11]
-
-    filas=tabla.find_elements(By.TAG_NAME, 'tr')
     cab = [c.text for c in filas[1].find_elements(By.TAG_NAME, 'th')]
-    return cab
+    driver.quit()
+    return pd.DataFrame(data, columns=cab)
+    #DATOS+=data
+
+    #CABECERAS=cab
     
 def scraping_players(url):
     
@@ -202,5 +171,32 @@ def scraping_players(url):
             tmp.append(e.text)
 
         data.append(tmp)
+        
+    cab = [c.text for c in filas[1].find_elements(By.TAG_NAME, 'th')]
     driver.quit()
-    return data
+    return pd.DataFrame(data, columns=cab)
+
+def scraping_estadios(url):
+    html=req.get(url).text
+    
+    soup=bs(html, 'html.parser')
+    
+    tabla = soup.find_all('tbody')[0]
+    
+    filas = tabla('tr')[1:]
+    
+    lista = []
+    for i in range(len(filas)):
+
+        Estadio = filas[i]('td')[1].text
+        Capacidad = filas[i]('td')[2].text
+        Equipo = filas[i]('td')[5].text
+        Capacidad = Capacidad.split(' ')
+
+        lista.append({'Estadio': Estadio,
+                       'Capacidad': Capacidad[0],
+                       'Equipo': Equipo})
+
+
+    df = pd.DataFrame(lista)
+    return df
