@@ -7,6 +7,7 @@
 - Crear una base de datos con los datos limpios.
 - BBDD de SQL con relaciones lógicas.
 - Comprobamos funcionamiento de la Base de Datos con algunas querys.
+- Analizamos algunos datos.
 
 ## 🚶 PASOS DE LA ETL
 
@@ -19,6 +20,7 @@
 - Modificación de valores erróneos en las diferentes columnas (Nombres de equipos, fechas, ints, floats, ...)
 4. Una vez limpiamos, los extraemos en un nuevo .csv(data_limpio)
 5. Ejecutamos algunas querys(Querys.txt).
+6. Analizamos algunos datos por encima, para el futuro(Analisis.ipynb)
 
 ## 💠 MODELO RELACIONAL SQL
 
